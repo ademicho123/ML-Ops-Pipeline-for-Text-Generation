@@ -8,16 +8,16 @@ def llm_model():
 
     # LLM model and entry script
     model = Model( 
-        model_data='s3://your-s3-bucket/path/to/your/model.tar.gz',
-        image_uri='LLM CONTAINER HERE',
+        model_data='s3://your-s3-bucket/path/to/your/model.tar.gz', # Update with the right info
+        image_uri='LLM CONTAINER HERE',                             # Update with the right info
         role=role,
         sagemaker_session=sagemaker_session,
     )
 
     # model endpoint deployment
     predictor = model.deploy(
-        instance_type='ml.m5.large',
-        endpoint_name='END POINT HERE',
+        instance_type='ml.m5.large',                                # Update with the right info
+        endpoint_name='END POINT HERE',                             # Update with the right info
     )
 
     print(f"Model deployed successfully to endpoint: {predictor.endpoint_name}")

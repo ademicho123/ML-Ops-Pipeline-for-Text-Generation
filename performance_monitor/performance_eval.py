@@ -1,33 +1,31 @@
-import openai
-import json
+import nltk
+from nltk.translate.bleu_score import sentence_bleu
+
+def calculate_bleu_score(candidate, reference):
+    # Tokenize the sentences into lists of words
+    candidate_tokens = nltk.word_tokenize(candidate.lower())
+    reference_tokens = [nltk.word_tokenize(sentence.lower()) for sentence in reference]
+
+    # Calculate BLEU score
+    bleu_score = sentence_bleu(reference_tokens, candidate_tokens)
+
+    return bleu_score
 
 def evaluate_performance(model_output, baseline_model_output):
-    # Printing out the results
+    # print the results
     print("Baseline GPT Output:", baseline_model_output)
     print("Your Model Output:", model_output)
 
-    # Perform a human eye test
-    human_eye_test_result = perform_human_eye_test(model_output, baseline_model_output)
-    print("\nHuman Eye Test Result:", human_eye_test_result)
-
-def perform_human_eye_test(model_output, baseline_output):
-    # Implement your human eye test logic
-    return "Passed" if model_output == baseline_output else "Failed"
+    # Calculate BLEU score
+    bleu_score = calculate_bleu_score(model_output, [baseline_model_output])
+    print("\nBLEU Score:", bleu_score)
 
 if __name__ == "__main__":
-    # Replace 'your-openai-api-key' with your actual OpenAI API key
-    openai.api_key = 'your-openai-api-key'
-    
-    # Example model output (replace with your LLM model output)
-    model_output = "Your generated text here..."
+    # model output text here (replace with your LLM model output)
+    model_output = "output text here..."
 
-    # Example baseline GPT output (replace with the actual baseline output)
-    baseline_model_output = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt="Your similar text input here...",
-        temperature=0.7,
-        max_tokens=100,
-    )["choices"][0]["text"]
+    # Baseline GPT output (replace with the actual baseline output)
+    baseline_model_output = "baseline text here..."
 
-    # Evaluate the performance
+    # Evaluate the performance using BLEU score
     evaluate_performance(model_output, baseline_model_output)

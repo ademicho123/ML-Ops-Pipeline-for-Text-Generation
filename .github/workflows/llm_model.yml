@@ -28,7 +28,7 @@ jobs:
       run: python -m unittest discover tests/
 
     - name: LLM Model Deployment
-      run: python deploy_model.py
+      run: python llm_model.py
       env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}             # Update with the right info
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}     # Update with the right info

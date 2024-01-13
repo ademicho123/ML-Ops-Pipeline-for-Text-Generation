@@ -5,15 +5,15 @@ The README file provides detailed instructions and documentation for setting up 
 This project aims to deploy and evaluate a text-generation language model (LLM) using Amazon SageMaker for deployment and GitHub Actions for continuous integration and continuous deployment (CI/CD). The pipeline includes monitoring, logging, and performance evaluation using BLEU score.
 
 # Explanation:
-llm_model.py:This script deploys the text-generation language model using Amazon SageMaker. It connects to a given AWS account, specifies the model location, and deploys it to an endpoint.
+- llm_model.py:This script deploys the text-generation language model using Amazon SageMaker. It connects to a given AWS account, specifies the model location, and deploys it to an endpoint.
 
-monitoring_logging/llm_monitoring_setup.py: This script sets up monitoring and logging for the deployed model using Amazon CloudWatch for real-time monitoring and AWS CloudTrail for logging API calls. Adjustments can be made based on specific metrics and logging requirements.
+- monitoring_logging/llm_monitoring_setup.py: This script sets up monitoring and logging for the deployed model using Amazon CloudWatch for real-time monitoring and AWS CloudTrail for logging API calls. Adjustments can be made based on specific metrics and logging requirements.
 
-performance_monitor/performance_eval.py: This script evaluates the performance of the text-generation model using BLEU score, comparing the model's output to a baseline output. Adjust the script based on your specific evaluation criteria.
+- performance_monitor/performance_eval.py: This script evaluates the performance of the text-generation model using BLEU score, comparing the model's output to a baseline output. Adjust the script based on your specific evaluation criteria.
 
-.github/workflows/llm_model.yml: This GitHub Actions workflow is triggered on pushes to the main branch. It automates the deployment process, running linting, testing, and the model deployment script.
+- .github/workflows/llm_model.yml: This GitHub Actions workflow is triggered on pushes to the main branch. It automates the deployment process, running linting, testing, and the model deployment script.
 
-requirements.txt: This file lists the Python dependencies for your this project. It includes libraries like boto3 for AWS interactions and nltk for BLEU score calculation.
+- requirements.txt: This file lists the Python dependencies for your this project. It includes libraries like boto3 for AWS interactions and nltk for BLEU score calculation.
 
 
 # Setup Instructions:

@@ -22,10 +22,10 @@ def evaluate_performance(model_output, baseline_model_output):
 
 if __name__ == "__main__":
     # model output text here (replace with your LLM model output)
-    model_output = "output text here..."
+    model_output = "output text here..."                                    # Update with the right info
 
     # Baseline GPT output (replace with the actual baseline output)
-    baseline_model_output = "baseline text here..."
+    baseline_model_output = "baseline text here..."                         # Update with the right info
 
     # Evaluate the performance using BLEU score
     evaluate_performance(model_output, baseline_model_output)

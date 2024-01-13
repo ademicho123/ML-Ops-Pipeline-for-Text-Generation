@@ -1,3 +1,5 @@
+"""This module contains the implementation of the LLM model."""
+
 import boto3
 from sagemaker import get_execution_role, Model
 

@@ -19,10 +19,14 @@ jobs:
         python-version: 3.8
 
     - name: Install Dependencies
-      run: pip install -r requirements.txt
+      run: |
+        pip install -r requirements.txt
+        set -e
 
     - name: Linting
-      run: pylint model/llm_model.py
+      run: |
+        pylint model/llm_model.py
+        set -e
 
     - name: Testing
       run: python -m unittest discover tests/

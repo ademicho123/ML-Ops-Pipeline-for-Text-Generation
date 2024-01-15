@@ -11,7 +11,8 @@ jobs:
 
     env:
       AWS_REGION: 'your-aws-region'  # Update with the actual AWS region
-
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}             # Update with the right info
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}     # Update with the right info
 
     steps:
     - name: Checkout Repository
@@ -34,6 +35,4 @@ jobs:
 
     - name: LLM Model Deployment
       run: python model/llm_model.py
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}             # Update with the right info
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}     # Update with the right info
+        

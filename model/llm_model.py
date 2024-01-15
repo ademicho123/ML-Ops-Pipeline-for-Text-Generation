@@ -7,7 +7,6 @@ def llm_model():
     """SageMaker session and role set up"""
     sagemaker_session = boto3.Session()
     role = get_execution_role()
-        
     # LLM model and entry script
     model = Model(
         model_data='s3://your-s3-bucket/path/to/your/model.tar.gz', # Update with the right info

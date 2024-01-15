@@ -5,7 +5,6 @@ from sagemaker import get_execution_role, Model
 
 def llm_model():
     """SageMaker session and role set up"""
-    # SageMaker session and role set up
     sagemaker_session = boto3.Session()
     role = get_execution_role()
         

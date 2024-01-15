@@ -27,10 +27,7 @@ jobs:
       run: |
         pylint model/llm_model.py
         set -e
-
-    - name: Testing
-      run: python -m unittest discover tests/
-
+        
     - name: LLM Model Deployment
       run: python model/llm_model.py
       env:

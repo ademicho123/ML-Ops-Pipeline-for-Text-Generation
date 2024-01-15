@@ -9,6 +9,10 @@ jobs:
   deploy_model:
     runs-on: ubuntu-latest
 
+    env:
+      AWS_REGION: 'your-aws-region'  # Update with the actual AWS region
+
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -27,7 +31,7 @@ jobs:
       run: |
         pylint model/llm_model.py
         set -e
-        
+
     - name: LLM Model Deployment
       run: python model/llm_model.py
       env:

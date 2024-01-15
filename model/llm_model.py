@@ -4,7 +4,9 @@ import boto3
 from sagemaker import get_execution_role, Model
 
 # Setting the AWS region
-os.environ['AWS_REGION'] = 'us-east-1'  # Update with actual AWS region
+aws_region = os.environ.get('AWS_REGION', 'us-east-1')  # Update with actual AWS region
+boto3.setup_default_session(region_name=aws_region)
+role = get_execution_role()
 
 def llm_model():
     """SageMaker session and role set up"""
@@ -25,6 +27,7 @@ def llm_model():
     )
 
     print(f"Model deployed successfully to endpoint: {predictor.endpoint_name}")
+    print(f"AWS Region: {aws_region}")
 
 if __name__ == "__main__":
     llm_model()
